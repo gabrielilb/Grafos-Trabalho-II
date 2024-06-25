@@ -94,7 +94,7 @@ std::vector<int> Digrafo::peso_min(int inicio, int fim)
         if (!fila_peso_min.vazia())
         {
             pair<int, int> removido = fila_peso_min.remove(); // preciso usar pair pois professor usou este tipo, vai remover o de menor valor
-            if (removido.first != 9999)
+            if (removido.second != 9999)
             {
                 for (auto j : listas_adj_[removido.first]) // verificar todos os vizinhos do vértice
                 {
