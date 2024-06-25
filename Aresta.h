@@ -11,10 +11,17 @@
 
 #define ARESTA_H
 
-class Aresta {
+#include <string>
 
-    /* Complete aqui */
+class Aresta
+{
 
+public:
+    const int v1;
+    const int v2;
+    const int peso;
+
+    Aresta(int v1, int v2, int peso);
 };
 
 #endif /* ARESTA_H */
