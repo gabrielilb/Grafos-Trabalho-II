@@ -30,32 +30,32 @@ int main()
     for (int i = 0; i < v; i++) // entrada das malhas de voos e custo
     {
         cin >> c1 >> c2 >> p;
-        voos.insere_aresta(Aresta(c2, c1, p));
+        voos.insere_aresta(Aresta(c2, c1, p)); // devido a busca da árvore ser das folhas para a raiz, ajustar a inserção das arestas
     }
 
     cin >> r; // entrada da quantidade de cidades que serão reavaliadas
 
     for (int j = 0; j < r; j++) // loop das cidades reavaliadas
     {
-        cin >> x >> m;
+        cin >> x >> m; // entrada da cidade que será verificada e seu peso máximo
 
         vector<int> pai, peso;
-        voos.peso_min(x, pai, peso);
+        voos.peso_min(x, pai, peso); // criação do peso mínimo para o digrafo voos;
 
-        for (int k = 0; k < peso.size(); k++)
+        for (int k = 0; k < peso.size(); k++) // loop para verificação do caminho
         {
-            if (k == x)
+            if (k == x) // se o vértice for igual ao x, continuar o loop
             {
                 continue;
             }
-            if (peso[k] <= m)
+            if (peso[k] <= m) // se o peso for menor ou igual ao pedido pelo usuário
             {
                 cout << k << ": " << peso[k] << ", ";
-                int p = k;
-                while (pai[p] != -1)
+                int p = k;           // vou salvar o índice em p para utilizar no próximo loop sem perder a informação do k
+                while (pai[p] != -1) // vou "andar" no vetor pai até localizar a raiz
                 {
-                    cout << p << " ";
-                    p = pai[p];
+                    cout << p << " "; // printar o índice p
+                    p = pai[p];       // atualizar o índice de p para o conteúdo
                 }
                 cout << p << "\n";
             }
