@@ -31,11 +31,7 @@ int main()
         cin >> x >> m; // entrada da cidade que será verificada e seu peso máximo
 
         vector<int> pai, peso;
-<<<<<<< HEAD
-        voos.peso_min(x, pai, peso); // criação do peso min para o digrafo voos
-=======
         voos.peso_min(x, pai, peso); // criação do peso mínimo para o digrafo voos;
->>>>>>> a05bcce37d3977e9244dc403a44f18fb0e5357be
 
         for (int k = 0; k < peso.size(); k++) // loop para verificação do caminho
         {
