@@ -48,7 +48,7 @@ void Digrafo::peso_min(int inicio, std::vector<int> &pais, std::vector<int> &pes
 
     for (int i = 0; i < num_vertices_; i++)
     {
-        fila_peso_min.insere(i, pesos[i]);
+        fila_peso_min.insere(i, pesos[i]); // irá criar a fila de prioridade de acordo com os respectivos pesos pra fazer a inicialização
     }
 
     while (!fila_peso_min.vazia()) // enquanto há elementos na fila de prioridade, o loop deve ser mantido
