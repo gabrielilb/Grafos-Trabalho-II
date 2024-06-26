@@ -14,6 +14,7 @@
 #include <algorithm>
 #include <string>
 #include <iostream>
+#include <climits>
 #include <list>
 #include <vector>
 
