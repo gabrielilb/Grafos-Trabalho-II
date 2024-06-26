@@ -30,7 +30,7 @@ int main()
     for (int i = 0; i < v; i++) // entrada das malhas de voos e custo
     {
         cin >> c1 >> c2 >> p;
-        voos.insere_aresta(Aresta(c1, c2, p));
+        voos.insere_aresta(Aresta(c2, c1, p));
     }
 
     cin >> r; // entrada da quantidade de cidades que serão reavaliadas
@@ -38,29 +38,32 @@ int main()
     for (int j = 0; j < r; j++) // loop das cidades reavaliadas
     {
         cin >> x >> m;
-        for (int k = 0; k < voos.num_vertices(); k++) // loop para verificar os pesos a partir do x para todos os outros vértices, k seria o u do enunciado do trab
-        {
-            if (k != x) // somente faço a busca para o vértice que não for ele mesmo
-            {
-                std::vector<int> caminho = voos.peso_min(k, x); // criação do vetor com o caminho de peso mínimo
-                cout << k << ": ";
 
-                if (caminho[0] > m)
+        vector<int> pai, peso;
+        voos.peso_min(x, pai, peso);
+
+        for (int k = 0; k < peso.size(); k++)
+        {
+            if (k == x)
+            {
+                continue;
+            }
+            if (peso[k] <= m)
+            {
+                cout << k << ": " << peso[k] << ", ";
+                int p = k;
+                while (pai[p] != -1)
                 {
-                    cout << "economicamente inviavel ate " << x << "\n";
+                    cout << p << " ";
+                    p = pai[p];
                 }
-                else
-                {
-                    cout << caminho[0] << ",";
-                    for (int l = caminho.size() - 1; l > 0; l--)
-                    {
-                        cout << " " << caminho[l];
-                    }
-                    cout << "\n";
-                }
+                cout << p << "\n";
+            }
+            else
+            {
+                cout << k << ": " << "economicamente inviavel ate " << x << endl;
             }
         }
-        cout << "\n";
     }
 
     return 0;

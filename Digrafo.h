@@ -25,7 +25,9 @@ public:
     int num_arestas();
 
     void insere_aresta(Aresta e);
-    std::vector<int> peso_min(int inicio, int fim);
+    void peso_min(int inicio, std::vector<int> &pais, std::vector<int> &pesos);
+
+    void imprime();
 
 private:
     int num_vertices_;
