@@ -1,12 +1,3 @@
-/*
- * Tarefa 04 - Grafeira Linhas Aereas
- *
- * GEN254 - Grafos - 2024/1
- *
- * Nome:      XXXX
- * Matricula: XXXX
- */
-
 #include "Digrafo.h"
 #include "Filapri_min.h"
 #include <exception>
@@ -22,13 +13,6 @@ using namespace std;
 
 Digrafo::Digrafo(int num_vertices)
 {
-    if (num_vertices <= 0)
-    {
-        throw(invalid_argument("Erro no construtor Grafo(int): o numero de "
-                               "vertices " +
-                               to_string(num_vertices) + " nao eh invalido!"));
-    }
-
     num_vertices_ = num_vertices;
     num_arestas_ = 0;
 
@@ -55,18 +39,6 @@ void Digrafo::insere_aresta(Aresta e)
     num_arestas_++;
 }
 
-void Digrafo::imprime()
-{
-    for (int k = 0; k < num_vertices_; k++)
-    {
-        for (auto v : listas_adj_[k])
-        {
-            cout << "Lista de adjacencias do vertice " << k << endl;
-            cout << "(" << (v)[0] << ", " << (v)[1] << ")\n";
-        }
-    }
-}
-
 void Digrafo::peso_min(int inicio, std::vector<int> &pais, std::vector<int> &pesos)
 {
     Filapri_min<int> fila_peso_min(num_vertices_);
@@ -86,7 +58,6 @@ void Digrafo::peso_min(int inicio, std::vector<int> &pais, std::vector<int> &pes
         {
             for (auto j : listas_adj_[removido.first]) // verificar todos os vizinhos do vértice
             {
-                // cout << j[1] << j[0] << "\n";
                 if (pesos[j[0]] > pesos[removido.first] + j[1]) // j é vetor, sendo necessário selecionar o primeiro índice e comparar com o first do par. Aqui, está sendo comparado o peso da aresta com a soma dos pesos do caminho
                 {                                               // Se o peso da aresta for maior que o caminho encontrado, significa que esse caminho possui menor peso, sendo selecionado
                     pesos[j[0]] = pesos[removido.first] + j[1];

@@ -1,12 +1,3 @@
-/*
- * Tarefa 04 - Grafeira Linhas Aereas
- *
- * GEN254 - Grafos - 2024/1
- *
- * Nome:      XXXX
- * Matricula: XXXX
- */
-
 #include "Aresta.h"
 #include "Digrafo.h"
 #include <exception>
@@ -40,7 +31,7 @@ int main()
         cin >> x >> m;
 
         vector<int> pai, peso;
-        voos.peso_min(x, pai, peso);
+        voos.peso_min(x, pai, peso); // criação do peso min para o digrafo voos
 
         for (int k = 0; k < peso.size(); k++)
         {

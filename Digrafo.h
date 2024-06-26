@@ -1,12 +1,3 @@
-/*
- * Tarefa 04 - Grafeira Linhas Aereas
- *
- * GEN254 - Grafos - 2024/1
- *
- * Nome:      XXXX
- * Matricula: XXXX
- */
-
 #ifndef DIGRAFO_H
 
 #define DIGRAFO_H
@@ -26,8 +17,6 @@ public:
 
     void insere_aresta(Aresta e);
     void peso_min(int inicio, std::vector<int> &pais, std::vector<int> &pesos);
-
-    void imprime();
 
 private:
     int num_vertices_;
