@@ -21,7 +21,7 @@ public:
 private:
     int num_vertices_;
     int num_arestas_;
-    std::vector<std::list<std::vector<int>>> listas_adj_; // ajustado para que seja um vetor (v1) com lista de vetores (v2 e peso)
+    std::vector<std::list<std::vector<int>>> listas_adj_;
 };
 
 #endif /* DIGRAFO_H */

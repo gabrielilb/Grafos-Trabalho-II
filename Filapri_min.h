@@ -1,12 +1,3 @@
-/*
- * Tarefa 04 - Grafeira Linhas Aereas
- *
- * GEN254 - Grafos - 2024/1
- *
- * Nome:      XXXX
- * Matricula: XXXX
- */
-
 #ifndef FILAPRI_MIN_H
 
 #define FILAPRI_MIN_H
@@ -15,20 +6,22 @@
 #include <utility>
 
 template <typename T>
-class Filapri_min {
+class Filapri_min
+{
 public:
     Filapri_min(int max_num_itens);
-    
+
     bool vazia();
     bool cheia();
-    
+
     bool tem_indice(int ind);
-    
+
     void insere(int ind, T prio);
     std::pair<int, T> remove();
-    
+
     T prio(int ind);
     void diminui_prio(int ind, T prio);
+
 private:
     int max_num_itens_;
     int num_itens_;
